@@ -1,0 +1,15 @@
+[
+    {
+      "blog_title": "SQL",
+      "blog_content": "SQL stands for Structured Query Language",
+      "user_id" : 1
+      
+    },
+    {
+      "blog_title": "Javascript",
+      "blog_content": "It is scriptiing language that allows to implement complex features on webpage.",
+      "user_id" : 2      
+    }
+    
+  ]
+  

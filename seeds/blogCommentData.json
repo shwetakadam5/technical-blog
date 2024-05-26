@@ -1,0 +1,13 @@
+[
+    {
+      "comment_description": "Comment1",      
+      "blog_id" : 1
+      
+    },
+    {
+      "comment_description": "Comment2",      
+      "blog_id" : 2  
+    }
+    
+  ]
+  
