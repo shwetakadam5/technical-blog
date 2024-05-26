@@ -6,13 +6,16 @@ const withAuth = require('../../utils/auth.js');
 router.get('/', withAuth, async (req, res) => {
   try {
     const blogs = await Blog.findAll({
-      raw: true,
+      include: [{ model: BlogUser }],
     });
 
-    console.log(blogs);
+    // console.log(blogs);
 
+    //  // Serialize user data so templates can read it
+    const blogData = blogs.map((blog) => blog.get({ plain: true }));
+    console.log(blogData);
     res.render('homepage', {
-      blogs,
+      blogData: blogData,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
