@@ -23,6 +23,14 @@ BlogComment.init(
         key: 'id',
       },
     },
+    user_id: {
+      //Foreign Key referencing the user table id
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'bloguser',
+        key: 'id',
+      },
+    },
   },
   {
     sequelize,

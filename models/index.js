@@ -24,4 +24,14 @@ BlogComment.belongsTo(Blog, {
   foreignKey: 'blog_id',
 });
 
+// Creates a relationship between User and BlogComment model, with the User having a "has many" relationship with BlogComment model.
+BlogUser.hasMany(BlogComment, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE',
+});
+
+// Creates a relationship between User and Blog model, with a "belongs to" relationship of the BlogComment to the User.
+BlogComment.belongsTo(BlogUser, {
+  foreignKey: 'user_id',
+});
 module.exports = { BlogUser, Blog, BlogComment };

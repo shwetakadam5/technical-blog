@@ -1,0 +1,31 @@
+{{ log this}}
+
+<div class="row align-center mb-5">
+  <div class="col-md-6">
+    <h2>{{blogDetails.id}}  {{blogDetails.blog_title}} </a> {{blogDetails.bloguser.name}}
+  </div>
+  <div class="col-md-6">
+    <h3>{{blogDetails.blog_content}}</h3>
+  </div>
+</div>
+<div class="col-md-6">
+    {{#each updatedBlogComments as |comment|}}
+    <h3>{{comment.comment_description}}</h3>
+     <h6>{{comment.user_id}}</h6>
+    <h6>{{comment.bloguser.name}}</h6>
+     <h6>{{comment.createdAt}}</h6>
+    {{/each}}
+  </div>
+
+<form class="form comment-form">
+  <div class="form-group">
+    <label for="comment">comment:</label>
+    <input class="form-input" type="text" id="comment" />
+    <input type="hidden" value="{{blogDetails.id}}" id="blog_id" />
+  </div> 
+  <div class="form-group">
+    <button class="btn btn-primary" type="submit">Add Comment</button>
+  </div>
+</form>
+
+<script src="/js/comment.js"></script>
