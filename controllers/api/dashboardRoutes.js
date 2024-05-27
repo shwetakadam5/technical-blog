@@ -41,6 +41,20 @@ router.get('/createblog/', withAuth, async (req, res) => {
   }
 });
 
+router.get('/:id', withAuth, async (req, res) => {
+  try {
+    console.log('From Dashboard get by id');
+    const blogData = await Blog.findByPk(req.params.id, {
+      include: [{ model: BlogUser }, { model: BlogComment }],
+    });
+    const blogDetails = blogData.get({ plain: true });
+
+    res.render('update-blog', { blogDetails });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.post('/addblog/', withAuth, async (req, res) => {
   try {
     const dbUserData = await Blog.create({
@@ -52,6 +66,59 @@ router.post('/addblog/', withAuth, async (req, res) => {
     res.status(200).json(dbUserData);
   } catch (err) {
     console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.put('/updateblog/:id', async (req, res) => {
+  console.log('*****************************************update');
+  try {
+    const updatedBlog = await Blog.update(
+      {
+        // All the fields you can update and the data attached to the request body.
+        blog_title: req.body.title,
+        blog_content: req.body.content,
+      },
+      {
+        // Gets the blog based on the id given in the request parameters
+        where: {
+          id: req.params.id,
+        },
+      },
+    );
+
+    if (!updatedBlog[0]) {
+      res.status(404).json({ message: 'No Blog found with that id!' });
+      return;
+    }
+    res.status(200).json({
+      message: `Blog ID : ${req.params.id} updated successfully!`,
+    });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+/* Route to delete the category by Id*/
+router.delete('/deleteblog/:id', async (req, res) => {
+  // delete a blog by its `id` value
+  console.log('*****************************************delete');
+  try {
+    const blogData = await Blog.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    if (!blogData) {
+      res.status(404).json({ message: 'No Blog found with that id!' });
+      return;
+    }
+
+    res.status(200).json({
+      message: `BLog with ID : ${req.params.id} deleted successfully!`,
+    });
+  } catch (err) {
     res.status(500).json(err);
   }
 });

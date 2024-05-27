@@ -1,0 +1,19 @@
+{{log this}}
+<form class="form blog-updateform">
+  <div class="form-group">
+    <label for="title">title:</label>
+    <input class="form-input" type="text" id="title" value="{{blogDetails.blog_title}}"/>    
+    <input type="hidden" value="{{blogDetails.id}}" id="blog_id" />
+  </div> 
+   <div class="form-group">
+    <label for="content">content:</label>
+    <input class="form-input" type="text" id="content" value="{{blogDetails.blog_content}}"/>
+   
+  </div> 
+  <div class="form-group">
+    <button id="updateBlog" class="btn btn-primary" type="submit">Update</button>
+      <button id="deleteBlog" class="btn btn-primary" type="submit">Delete</button>
+  </div>
+</form>
+
+<script src="/js/updateblog.js"></script>
