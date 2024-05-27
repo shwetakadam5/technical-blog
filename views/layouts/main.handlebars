@@ -13,11 +13,14 @@
     <h1>
      Blog Site
     </h1>
+       <h2><a href="/api/blogs/">Home</a></h2>
+       <h2><a href="/api/dashboard/">Dashboard</a></h2>
     {{#if logged_in}}
     <nav>
       <button class="btn" id="logout">logout</button>
     </nav>
     {{/if}}
+
   </header>
   <main>
     {{{ body }}}

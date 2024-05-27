@@ -1,0 +1,13 @@
+<!-- For each gallery, the 'gallery-details' partial is used to render the gallery data -->
+{{#each blogData}}
+{{> dashboard-details}}
+{{/each}}
+<form class="form create-blog">
+<div class="form-group">
+<button type="submit" id="createblog" >New Blog</button>
+</div>
+</form>
+
+
+<script src="/js/blog.js"></script>
+  
