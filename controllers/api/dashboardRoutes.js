@@ -24,6 +24,7 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
+//When the user clicks on new post option in the dashboard
 router.get('/createblog/', withAuth, async (req, res) => {
   try {
     res.render('create-blog', {
@@ -34,7 +35,7 @@ router.get('/createblog/', withAuth, async (req, res) => {
     res.status(500);
   }
 });
-
+//When the user clicks on the  blog title on the dashboard
 router.get('/:id', withAuth, async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id, {
@@ -47,7 +48,7 @@ router.get('/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+// when the user submits the create new post
 router.post('/addblog/', withAuth, async (req, res) => {
   try {
     const dbUserData = await Blog.create({
@@ -63,6 +64,7 @@ router.post('/addblog/', withAuth, async (req, res) => {
   }
 });
 
+//when the user submits the update post
 router.put('/updateblog/:id', withAuth, async (req, res) => {
   try {
     const updatedBlog = await Blog.update(
@@ -91,7 +93,7 @@ router.put('/updateblog/:id', withAuth, async (req, res) => {
   }
 });
 
-/* Route to delete the category by Id*/
+// when the user submits the delete post
 router.delete('/deleteblog/:id', withAuth, async (req, res) => {
   // delete a blog by its `id` value
 
