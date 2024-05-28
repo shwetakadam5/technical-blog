@@ -13,6 +13,17 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+router.get('/signup', (req, res) => {
+  // If a session exists, redirect the request to the homepage
+  console.log('In api/users/signup : Get ');
+  if (req.session.logged_in) {
+    res.redirect('/api/blogs/');
+    return;
+  }
+
+  res.render('signup');
+});
+
 router.post('/login', async (req, res) => {
   try {
     const userData = await BlogUser.findOne({
@@ -41,6 +52,25 @@ router.post('/login', async (req, res) => {
 
     res.json({ user: userData, message: 'You are now logged in!' });
     // });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.post('/signup', async (req, res) => {
+  try {
+    console.log('In LoginRoute Signup');
+    // All the fields you can create and the data attached to the request body.
+    const userData = await BlogUser.create({
+      name: req.body.username,
+      email: req.body.email,
+      password: req.body.password,
+    });
+
+    req.session.user_id = userData.id;
+    req.session.logged_in = true;
+
+    res.status(200).json({ user: userData, message: 'You are now logged in!' });
   } catch (err) {
     res.status(400).json(err);
   }
