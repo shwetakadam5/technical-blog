@@ -6,7 +6,6 @@ const withAuth = require('../../utils/auth.js');
 // THEN I am taken to the dashboard and presented with any blog posts I have already created and the option to add a new blog post
 router.get('/', withAuth, async (req, res) => {
   try {
-    console.log('HI I AM IN DASHBOARD ROUTE ');
     const blogs = await Blog.findAll({
       where: {
         user_id: req.session.user_id,
@@ -64,7 +63,7 @@ router.post('/addblog/', withAuth, async (req, res) => {
   }
 });
 
-router.put('/updateblog/:id', async (req, res) => {
+router.put('/updateblog/:id', withAuth, async (req, res) => {
   try {
     const updatedBlog = await Blog.update(
       {
@@ -93,7 +92,7 @@ router.put('/updateblog/:id', async (req, res) => {
 });
 
 /* Route to delete the category by Id*/
-router.delete('/deleteblog/:id', async (req, res) => {
+router.delete('/deleteblog/:id', withAuth, async (req, res) => {
   // delete a blog by its `id` value
 
   try {

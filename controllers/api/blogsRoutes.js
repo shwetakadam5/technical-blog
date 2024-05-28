@@ -11,11 +11,9 @@ router.get('/', withAuth, async (req, res) => {
       include: [{ model: BlogUser }],
     });
 
-    // console.log(blogs);
-
-    //  // Serialize user data so templates can read it
+    // Serialize user data so templates can read it
     const blogData = blogs.map((blog) => blog.get({ plain: true }));
-    // console.log(blogData);
+
     res.render('homepage', {
       blogData: blogData,
       logged_in: req.session.logged_in,
@@ -35,7 +33,6 @@ router.get('/:id', withAuth, async (req, res) => {
 
     const blogDetails = blogData.get({ plain: true });
 
-    console.log(blogDetails.blogcomments);
     const blogComments = blogDetails.blogcomments;
     const updatedBlogComments = [];
     for (let index = 0; index < blogComments.length; index++) {
