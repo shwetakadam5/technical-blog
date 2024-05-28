@@ -4,7 +4,7 @@ const { BlogUser } = require('../../models');
 // Route : /api/users/login
 router.get('/login', (req, res) => {
   // If a session exists, redirect the request to the homepage
-  console.log('In api/users/login : Get ');
+
   if (req.session.logged_in) {
     res.redirect('/api/blogs/');
     return;
@@ -15,7 +15,7 @@ router.get('/login', (req, res) => {
 
 router.get('/signup', (req, res) => {
   // If a session exists, redirect the request to the homepage
-  console.log('In api/users/signup : Get ');
+
   if (req.session.logged_in) {
     res.redirect('/api/blogs/');
     return;
@@ -59,7 +59,6 @@ router.post('/login', async (req, res) => {
 
 router.post('/signup', async (req, res) => {
   try {
-    console.log('In LoginRoute Signup');
     // All the fields you can create and the data attached to the request body.
     const userData = await BlogUser.create({
       name: req.body.username,

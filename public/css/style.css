@@ -1,0 +1,94 @@
+:root {
+  --light: #f6f6f6;
+  --darkblue: rgb(22, 22, 83);
+  --darkblack: black;
+  --darkcardblue: #2c3e50;
+}
+
+body {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 25px;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+#blog-nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.nav-button {
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  color: var(--light);
+  font-size: large;
+}
+
+.btn-custom {
+  background-color: var(--darkcardblue);
+}
+
+.bg-custom {
+  background-color: var(--darkcardblue);
+}
+
+.text-custom {
+  color: var(--light);
+}
+
+#header-title {
+  background-color: var(--light);
+  color: var(--darkblue);
+  border-radius: 5px;
+  box-shadow: 0px 5px 10px 0px #0dcaf0;
+  padding: 5px;
+  margin-left: 20px;
+  font-weight: bold;
+}
+
+.login-container {
+  background-color: var(--light);
+  border-style: solid;
+  padding: 20px;
+  margin: 20px;
+}
+
+#form-title {
+  background-color: var(--darkcardblue);
+  color: var(--light);
+  font-weight: bold;
+  padding: 20px;
+}
+
+.blog-card-header {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--darkcardblue);
+  color: var(--light);
+  align-items: center;
+}
+
+.blog-card-text {
+  font-size: large;
+}
+
+.card {
+  margin: 30px;
+}
+
+.blog-title {
+  color: var(--light);
+  text-decoration: none;
+}

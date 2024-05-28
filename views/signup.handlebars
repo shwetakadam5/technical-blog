@@ -1,22 +1,24 @@
-<h2>Sign Up</h2>
-
-<form class="form sign-form">
-  <div class="form-group">
-    <label for="username-login">username:</label>
-    <input class="form-input" type="text" id="username-login" />
+<div>
+<form class="form sign-form login-container">
+  <div class="form-group row mb-3"><h2 id="form-title">Sign Up</h2></div>
+  <div class="form-group row mb-3">
+    <label for="username-login" class="form-label">User Name</label>    
+    <input class="form-input" type="text" id="username-login" />    
   </div>
-  <div class="form-group">
-    <label for="email-login">email:</label>
+   <div class="form-group row mb-3">
+    <label for="email-login" class="form-label">Email</label>
     <input class="form-input" type="text" id="email-login" />
   </div>
-  <div class="form-group">
-    <label for="password-login">password:</label>
+  <div class="form-group row mb-3">
+    <label for="password-login" class="form-label">Password</label>
     <input class="form-input" type="password" id="password-login" />
   </div>
-  <div class="form-group">
-    <button class="btn btn-primary" type="submit">Sign Up</button>
+  <div class="form-group row mb-3">
+    <button class="btn btn-primary" type="submit"><h3>Sign Up!</h3></button>
   </div>
-  <a href="/api/users/login">Login Instead </a>
+  <a href="/api/users/login" class="nav-button btn-custom">Login Instead </a>
 </form>
 
 <script src="/js/signup.js"></script>
+</div>
+

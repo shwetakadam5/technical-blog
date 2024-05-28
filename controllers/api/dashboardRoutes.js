@@ -13,11 +13,9 @@ router.get('/', withAuth, async (req, res) => {
       },
     });
 
-    // console.log(blogs);
-
-    //  // Serialize user data so templates can read it
+    // Serialize user data so templates can read it
     const blogData = blogs.map((blog) => blog.get({ plain: true }));
-    // console.log(blogData);
+
     res.render('dashboard', {
       blogData: blogData,
       logged_in: req.session.logged_in,
@@ -29,9 +27,6 @@ router.get('/', withAuth, async (req, res) => {
 
 router.get('/createblog/', withAuth, async (req, res) => {
   try {
-    console.log(
-      '**********************************************/dashboard/createblog/',
-    );
     res.render('create-blog', {
       user_id: req.session.user_id,
       logged_in: req.session.logged_in,
@@ -43,7 +38,6 @@ router.get('/createblog/', withAuth, async (req, res) => {
 
 router.get('/:id', withAuth, async (req, res) => {
   try {
-    console.log('From Dashboard get by id');
     const blogData = await Blog.findByPk(req.params.id, {
       include: [{ model: BlogUser }, { model: BlogComment }],
     });
@@ -71,7 +65,6 @@ router.post('/addblog/', withAuth, async (req, res) => {
 });
 
 router.put('/updateblog/:id', async (req, res) => {
-  console.log('*****************************************update');
   try {
     const updatedBlog = await Blog.update(
       {
@@ -102,7 +95,7 @@ router.put('/updateblog/:id', async (req, res) => {
 /* Route to delete the category by Id*/
 router.delete('/deleteblog/:id', async (req, res) => {
   // delete a blog by its `id` value
-  console.log('*****************************************delete');
+
   try {
     const blogData = await Blog.destroy({
       where: {

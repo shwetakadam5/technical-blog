@@ -1,31 +1,45 @@
-{{ log this}}
 
-<div class="row align-center mb-5">
-  <div class="col-md-6">
-    <h2>{{blogDetails.id}}  {{blogDetails.blog_title}} </a> {{blogDetails.bloguser.name}}
+<div class="card">
+  <div class="card-header blog-card-header">
+    <p class="card-text blog-card-text">{{blogDetails.blog_title}} </a></p>
+    <p class="card-text blog-card-text">Posted by {{blogDetails.bloguser.name}} on {{format_date blogDetails.bloguser.createdAt}}</p>
   </div>
-  <div class="col-md-6">
-    <h3>{{blogDetails.blog_content}}</h3>
+  <div class="card-body">    
+    <p class="card-text blog-card-text">{{blogDetails.blog_content}}</p>   
   </div>
 </div>
-<div class="col-md-6">
-    {{#each updatedBlogComments as |comment|}}
-    <h3>{{comment.comment_description}}</h3>
-     <h6>{{comment.user_id}}</h6>
-    <h6>{{comment.bloguser.name}}</h6>
-     <h6>{{comment.createdAt}}</h6>
-    {{/each}}
-  </div>
 
+<!-- Displaying Comments -->
+ {{#each updatedBlogComments as |comment|}}
+<div class="card">
+  <div class="card-header blog-card-header">
+     <p class="card-text blog-card-text"></p>
+     <p class="card-text blog-card-text"></p>
+  </div>
+  <div class="card-body">    
+    <p class="card-text blog-card-text">{{comment.comment_description}}</p>   
+     <p class="card-text blog-card-text"> - {{comment.bloguser.name}}, {{format_date comment.createdAt}}</p>        
+  </div>
+</div>
+ {{/each}}
+
+<!-- Add Comment Section -->
+<div class="card">
+<div class="card-header blog-card-header">
+     <p class="card-text blog-card-text"></p>
+     <p class="card-text blog-card-text"></p>
+  </div>
+  <div class="card-body">  
 <form class="form comment-form">
-  <div class="form-group">
-    <label for="comment">comment:</label>
+  <div class="form-group row mb-3">
+    <label for="comment" class="form-label">Comment</label>
     <input class="form-input" type="text" id="comment" />
     <input type="hidden" value="{{blogDetails.id}}" id="blog_id" />
   </div> 
-  <div class="form-group">
-    <button class="btn btn-primary" type="submit">Add Comment</button>
+  <div class="form-group row mb-3">
+    <button class="btn btn-primary" type="submit">Submit Comment</button>
   </div>
 </form>
-
 <script src="/js/comment.js"></script>
+</div>
+</div>

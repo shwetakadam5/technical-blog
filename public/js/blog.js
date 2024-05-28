@@ -1,5 +1,4 @@
 const blogFormHandler = async (event) => {
-  alert('HI I am in create blog');
   event.preventDefault();
   const response = await fetch('/api/dashboard/createblog/');
   if (response.ok) {

@@ -5,8 +5,6 @@ const blogCreateFormHandler = async (event) => {
   const userId = document.querySelector('#user_id').value.trim();
   const content = document.querySelector('#content').value.trim();
 
-  console.log('Hello I am in blogCreateFormHandler');
-
   if ((title, content, userId)) {
     const response = await fetch('/api/dashboard/addblog/', {
       method: 'POST',
