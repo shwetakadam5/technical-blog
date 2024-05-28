@@ -68,6 +68,37 @@ https://technical-blog-kee1.onrender.com/api/users/login
 
 ![Image Unavailable](./assets/images/01_techblog_Homepage.jpeg) 
 
+#### 2. ****Technical Blog : Home:****
+
+![Image Unavailable](./assets/images/03_techblog_ListofallBlogs.jpeg) 
+
+#### 3. ****Technical Blog : View Blog (Comments):****
+
+![Image Unavailable](./assets/images/04_techblog_ViewBlogComments.jpeg) 
+
+#### 4. ****Technical Blog : Submit Comment:****
+
+![Image Unavailable](./assets/images/05_techblog_SubmitComment.jpeg) 
+
+#### 5. ****Technical Blog : Dashboard:****
+
+![Image Unavailable](./assets/images/06_techblog_dasboard.jpeg) 
+
+#### 6. ****Technical Blog : Create New Post:****
+
+![Image Unavailable](./assets/images/07_techblog_CreateNewBlog.jpeg) 
+
+#### 7. ****Technical Blog : Update Post :****
+
+![Image Unavailable](./assets/images/08_techblog_UpdateDeleteBlog.jpeg) 
+
+#### 8. ****Technical Blog : Updated Blog:****
+
+![Image Unavailable](./assets/images/09_techblog_updatedblog.jpeg) 
+
+#### 9. ****Technical Blog : Deleted Blog :****
+
+![Image Unavailable](./assets/images/010_techblog_deletedSQLBlog.jpeg) 
 
 
 ## Acceptance-Criteria
